@@ -1,6 +1,6 @@
 # Ansible Role: Pip (for Python)
 
-[![CI](https://github.com/geerlingguy/ansible-role-pip/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-pip/actions?query=workflow%3ACI)
+[![CI](https://github.com/geerlingguy/ansible-role-pip/actions/workflows/ci.yml/badge.svg)](https://github.com/geerlingguy/ansible-role-pip/actions/workflows/ci.yml)
 
 An Ansible Role that installs [Pip](https://pip.pypa.io) on Linux.
 
@@ -14,7 +14,7 @@ Available variables are listed below, along with default values (see `defaults/m
 
     pip_package: python3-pip
 
-The name of the packge to install to get `pip` on the system. For older systems that don't have Python 3 available, you can set this to `python-pip`.
+The name of the package to install to get `pip` on the system. For older systems that don't have Python 3 available, you can set this to `python-pip`.
 
     pip_executable: pip3
 
@@ -50,6 +50,10 @@ A list of packages to install with pip. Examples below:
       # Or install a package in a particular virtualenv.
       - name: docker
         virtualenv: /my_app/venv
+
+      # Or pass through any extra arguments.
+      - name: my_special_package_from_my_special_repo
+        extra_args: --extra-index-url https://my-domain/pypi/pypi-master/simple
 
 ## Dependencies
 
